@@ -1,8 +1,8 @@
 #!/bin/bash
 apt-get -y -q --force-yes install automake make gcc g++
 wget http://nchc.dl.sourceforge.net/project/kingate/kingate/2.2/kingate-2.2.tar.gz
-tar xzf kingate-2.0.tar.gz
-cd kingate-2.0
+tar xzf kingate-2.2.tar.gz
+cd kingate-2.2
 ./configure --prefix=/etc/kingate
 make install
 cat >/etc/kingate/etc/kingate.conf << eof
@@ -63,5 +63,8 @@ bind_addr
 run_user
 insert_via off
 eof
-/etc/kingate/bin/kingate
+wget http://soft.vpser.net/proxy/kingate/kingate.init.d
+mv kingate.init.d /etc/init.d/kingate
+chmod +x /etc/init.d/kingate
+service kingate start
 sed -i '2a /etc/kingate/bin/kingate -f'  /etc/rc.local
