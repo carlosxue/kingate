@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get -y -q --force-yes install automake make gcc g++
+apt-get -y -q --force-yes install build-essential automake make gcc g++
 wget http://nchc.dl.sourceforge.net/project/kingate/kingate/2.2/kingate-2.2.tar.gz
 tar xzf kingate-2.2.tar.gz
 cd kingate-2.2
@@ -41,7 +41,7 @@ manage_port 2222
 manage_time_out 300
 log_model user
 log_level 2
-log_rotate {0 0 1 * * }
+log_rotate {0 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 * * *  }
 log_close_msg on
 mem_min_cache 50m
 mem_max_cache 12m
@@ -66,5 +66,5 @@ eof
 wget http://soft.vpser.net/proxy/kingate/kingate.init.d
 mv kingate.init.d /etc/init.d/kingate
 chmod +x /etc/init.d/kingate
-service kingate start
-sed -i '2a /etc/kingate/bin/kingate -f'  /etc/rc.local
+/etc/init.d/kingate start
+
