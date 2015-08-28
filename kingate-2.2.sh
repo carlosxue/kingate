@@ -3,9 +3,9 @@ apt-get -y -q --force-yes install build-essential automake make gcc g++
 wget http://nchc.dl.sourceforge.net/project/kingate/kingate/2.2/kingate-2.2.tar.gz
 tar xzf kingate-2.2.tar.gz
 cd kingate-2.2
-./configure --prefix=/etc/kingate
+./configure --prefix=/usr/local/kingate
 make install
-cat >/etc/kingate/etc/kingate.conf << eof
+cat >/etc/kingate.conf << eof
 http off
 ftp off
 pop3 off
@@ -67,4 +67,3 @@ wget http://soft.vpser.net/proxy/kingate/kingate.init.d
 mv kingate.init.d /etc/init.d/kingate
 chmod +x /etc/init.d/kingate
 /etc/init.d/kingate start
-
