@@ -14,7 +14,7 @@ telnet off
 socks on
 mms off
 rtsp off
-manage off
+manage on
 max 2000
 max_per_ip 0
 min_free_thread 3
